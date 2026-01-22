@@ -1,0 +1,16 @@
+models:
+  - name: fct_orders
+    columns: 
+      - name: order_key
+        tests:  # Buult-in generic tests: 
+          - unique  # order_key must be unique and must not be null 
+          - not_null
+          - relationships: 
+              to: ref('stg_tpch_orders')
+              field: order_key
+              severity: warn
+      - name: status_code 
+        tests: 
+          - accepted_values:  # Check status_code, only accept P, O F 
+              values: ['P', 'O', 'F'] # Indented because it belongs to the test
+

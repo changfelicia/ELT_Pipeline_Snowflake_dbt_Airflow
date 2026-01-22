@@ -1,0 +1,5 @@
+
+# Ignore dbt and Airflow logs/temp files
+target/
+dbt_packages/
+logs/
